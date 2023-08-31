@@ -22,8 +22,8 @@ const register = async (req, res, next) => {
     r: "mm",
   });
 
-  const { name, username, email, phone, password, userRef } = req.body;
-  if (!name || !username || !email || !phone || !password) {
+  const { name, username, email, phoneNumber, password, userRef } = req.body;
+  if (!name || !username || !email || !phoneNumber || !password) {
     return next(createError(403, "Invalid credentials"));
   }
 
@@ -37,7 +37,7 @@ const register = async (req, res, next) => {
     username,
     email,
     password,
-    phone,
+    phoneNumber,
     avatarUrl: avatar,
     accountNumber: generateAccountNumber(10),
     accountBalance: generateAccountBalance(5),
